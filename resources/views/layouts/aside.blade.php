@@ -13,7 +13,7 @@
                 </a>
             </li>
             <li class=" ">
-                <a href="">
+                <a href="{{ route('abonnements.index') }}">
                     <span class="pcoded-micon"><i class="feather icon-users"></i></span>
                     <span class="pcoded-mtext">Abonnements</span>
                 </a>

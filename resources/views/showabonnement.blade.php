@@ -1,225 +1,171 @@
-<?php include 'includes/head.php';?>
+@extends('layouts.app')
 
-    <div class="theme-loader">
-        <div class="ball-scale">
-            <div class='contain'>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
+@section('content')
 
-            </div>
-        </div>
-    </div>
+    <div class="main-body">
+        <div class="page-wrapper">
 
-    <div id="pcoded" class="pcoded">
-        <div class="pcoded-overlay-box"></div>
-        <div class="pcoded-container navbar-wrapper">
-            
-            <?php include 'includes/nav.php';?>
+            <div class="page-body">
 
-            <div class="pcoded-main-container">
-                <div class="pcoded-wrapper">
-
-                    <?php include 'includes/aside.php';?>
-
-                    <div class="pcoded-content">
-                        <div class="pcoded-inner-content">
-
-                            <div class="main-body">
-                                <div class="page-wrapper">
-
-                                    <div class="page-body">
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="cover-profile">
-                                                    <div class="profile-bg-img">
-                                                        <img class="profile-bg-img img-fluid"
-                                                            src="assets/images/user-profile/bg-img1.jpg"
-                                                            alt="bg-img">
-                                                        <div class="card-block user-info">
-                                                            <div class="col-md-12">
-                                                                <div class="media-left">
-                                                                    <a href="#" class="profile-image">
-                                                                        <img class="user-img img-radius"
-                                                                            src="assets/images/user-profile/user-img.jpg"
-                                                                            alt="user-img">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="media-body row">
-                                                                    <div class="col-lg-12">
-                                                                        <div class="user-title">
-                                                                            <h2>Josephin Villa</h2>
-                                                                            <span class="text-white">Web designer</span>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="cover-profile">
+                            <div class="profile-bg-img">
+                                <img class="profile-bg-img img-fluid"
+                                    src="{{ asset('assets/images/user-profile/bg-img1.jpg') }}"
+                                    alt="bg-img">
+                                <div class="card-block user-info">
+                                    <div class="col-md-12">
+                                        <div class="media-left">
+                                            <a href="#" class="profile-image">
+                                                <img class="user-img img-radius"
+                                                    src="{{ asset('assets/images/usere.png') }}"
+                                                    alt="user-img">
+                                            </a>
                                         </div>
-
-                                        <div class="row">
+                                        <div class="media-body row">
                                             <div class="col-lg-12">
-
-                                                <div class="tab-header card">
-                                                    <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist"
-                                                        id="mytab">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link active" data-toggle="tab"
-                                                                href="#personal" role="tab">Informations</a>
-                                                            <div class="slide"></div>
-                                                        </li>
-                                                    </ul>
+                                                <div class="user-title">
+                                                    <h2>{{$abonnements->personne}}</h2>
+                                                    <span class="text-white">{{$abonnements->entreprise}}</span>
                                                 </div>
-
-
-                                                <div class="tab-content">
-
-                                                    <div class="tab-pane active" id="personal" role="tabpanel">
-
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <button type="button"
-                                                                    class="btn btn-sm btn-primary f-right">
-                                                                    <i class="fa fa-backward">  Rentrer</i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="card-block">
-                                                                <div class="view-info">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-12">
-                                                                            <div class="general-info">
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12 col-xl-6">
-                                                                                        <div class="table-responsive">
-                                                                                            <table class="table m-0">
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Full Name
-                                                                                                        </th>
-                                                                                                        <td>Josephine
-                                                                                                            Villa</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Gender</th>
-                                                                                                        <td>Female</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Birth Date
-                                                                                                        </th>
-                                                                                                        <td>October
-                                                                                                            25th, 1990
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Marital
-                                                                                                            Status</th>
-                                                                                                        <td>Single</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Location
-                                                                                                        </th>
-                                                                                                        <td>New York,
-                                                                                                            USA</td>
-                                                                                                    </tr>
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="col-lg-12 col-xl-6">
-                                                                                        <div class="table-responsive">
-                                                                                            <table class="table">
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Email</th>
-                                                                                                        <td><a
-                                                                                                                href="#!"><span
-                                                                                                                    class="__cf_email__"
-                                                                                                                    data-cfemail="5c183931331c39243d312c3039723f3331">[email&#160;protected]</span></a>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Mobile
-                                                                                                            Number</th>
-                                                                                                        <td>(0123) -
-                                                                                                            4567891</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Twitter</th>
-                                                                                                        <td>@xyz</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Skype</th>
-                                                                                                        <td>demo.skype
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <th scope="row">
-                                                                                                            Website</th>
-                                                                                                        <td><a
-                                                                                                                href="#!">www.demo.com</a>
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-
-
-                                                </div>
-
                                             </div>
+
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="tab-header card">
+                            <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist"
+                                id="mytab">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab"
+                                        href="#personal" role="tab">Informations</a>
+                                    <div class="slide"></div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div class="tab-content">
+
+                            <div class="tab-pane active" id="personal" role="tabpanel">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a href="{{ route('abonnements.index') }}" type="button"
+                                            class="btn btn-sm btn-primary f-right">
+                                            <i class="fa fa-backward">  Retour</i>
+                                        </a>
+                                    </div>
+                                    <div class="card-block">
+                                        <div class="view-info">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="general-info">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-xl-6">
+                                                                <div class="table-responsive">
+                                                                    <table class="table m-0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <th scope="row">
+                                                                                    Nom
+                                                                                </th>
+                                                                                <td>{{$abonnements->personne}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">Entreprise</th>
+                                                                                <td>{{$abonnements->entreprise}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">
+                                                                                    Numérode téléphone
+                                                                                </th>
+                                                                                <td>
+                                                                                    {{$abonnements->contact}}
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">Addresse mailStatus</th>
+                                                                                <td>{{$abonnements->email}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">
+                                                                                    Type d'abonnement
+                                                                                </th>
+                                                                                <td>{{$abonnements->nature}}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-12 col-xl-6">
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <th scope="row">
+                                                                                    Montant
+                                                                                </th>
+                                                                                <td>{{$abonnements->montant}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">Etat</th>
+                                                                                <td>{{$abonnements->etat}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">statut</th>
+                                                                                <td>{{$abonnements->statut}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">Début l'abonnement</th>
+                                                                                <td>{{$abonnements->datedebut}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">Fin de l'abonnement</th>
+                                                                                <td>
+                                                                                {{$abonnements->datefin}}
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 
-<?php include 'includes/footer.php';?>
+@endsection

@@ -69,7 +69,7 @@
                         <div class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('assets/images/ecomatin2.png') }}" class="img-radius"
                                 alt="User-Profile-Image">
-                            <span>John Doe</span>
+                            <span>{{ Auth::user()->name }}</span>
                             <i class="feather icon-chevron-down"></i>
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu"
@@ -82,7 +82,7 @@
                             </li>
 
                             <li>
-                                <a href="">
+                                <a href="{{route('logout')}}">
                                     <i class="feather icon-log-out"></i> Déconnexion
                                 </a>
                             </li>
