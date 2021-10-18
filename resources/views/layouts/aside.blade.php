@@ -7,20 +7,20 @@
         <ul class="pcoded-item pcoded-left-item">
 
             <li class=" ">
-                <a href="">
-                    <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                <a href="{{ route('home') }}">
+                    <span class="pcoded-micon"><i class="fa fa-home"></i></span>
                     <span class="pcoded-mtext">Dashboard</span>
                 </a>
             </li>
             <li class=" ">
                 <a href="{{ route('abonnements.index') }}">
-                    <span class="pcoded-micon"><i class="feather icon-users"></i></span>
+                    <span class="pcoded-micon"><i class="fa fa-users"></i></span>
                     <span class="pcoded-mtext">Abonnements</span>
                 </a>
             </li>
             <li class=" ">
-                <a href="">
-                    <span class="pcoded-micon"><i class="feather icon-tv"></i></span>
+                <a href="{{ route('publicites.index') }}">
+                    <span class="pcoded-micon"><i class="fa fa-tv"></i></span>
                     <span class="pcoded-mtext">Publicités</span>
                 </a>
             </li>

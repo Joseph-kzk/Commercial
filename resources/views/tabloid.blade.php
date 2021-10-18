@@ -14,7 +14,7 @@
                     <div class="col-lg-8">
                         <div class="page-header-title">
                             <div class="d-inline">
-                                <h4>Pages des abonnements</h4>
+                                <h4>Abonnés Tabloïd</h4>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
 
                         <div class="card">
                             <div class="card-header table-card-header">
-                                <h5>Tableau des abonnements</h5>
+                                <h5>Tableau des abonnements Tabloïd</h5>
                             </div>
                             <div class="card-block">
                                 <div class="dt-responsive table-responsive">
@@ -58,9 +58,9 @@
                                         </thead>
 
                                         <tbody>
-                                        @if(count($abonnements) > 0)
+                                        @if(count($journal) > 0)
 
-                                            @foreach($abonnements as $key=> $abonnement)
+                                            @foreach($journal as $key=> $abonnement)
 
                                                 <tr>
                                                     <td>{{$key+1}}</td>
@@ -111,128 +111,127 @@
 
 
     <!-- Modal d'ajout -->
-        <div class="modal fade" id="myModal1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Ajouter un abonné</h4>
-                        <button type="button" class="close"
-                            data-dismiss="modal"
-                            aria-hidden="true">×</button>
-                    </div>
-                    <div class="container"></div>
-
-                    <form action="{{ route('abonnements.store') }}" method="POST">
-                    @csrf
-
-                        <div class="modal-body">
-                            
-                            <div class="row">
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Entreprise</label>
-                                    <input type="text" name="entreprise" class="form-control" placeholder="Nom de l'entreprise">
-                                </div>
-
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Personne ressource</label>
-                                    <input type="text" name="personne" class="form-control" placeholder="Nom cu client">
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Contact</label>
-                                    <input type="text" name="contact" class="form-control" placeholder="Numéro de tél">
-                                </div>
-
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Email</label>
-                                    <input type="text" name="email" class="form-control" placeholder="Addresse mail">
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Nature</label>
-                                    <select name="nature" id="" class="form-control">
-                                        <option value="PDF">PDF</option>
-                                        <option value="Tabloïd">Tabloïd</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Etat</label>
-                                    <select name="etat" id="" class="form-control">
-                                        <option value="Payé">Payé</option>
-                                        <option value="Non payé">Non payé</option>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Montant</label>
-                                    <input type="text" name="montant" class="form-control" placeholder="Montant payé">
-                                </div>
-
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Statut</label>
-                                    <select name="statut" id="" class="form-control">
-                                        <option value="Actif">Actif</option>
-                                        <option value="Inactif">Inactif</option>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Date de début</label>
-                                    <input type="date" name="datedebut" class="form-control">
-                                </div>
-
-                                <div class="col-md-6 mt-1">
-                                    <label class="">Date de fin</label>
-                                    <input type="date" name="datefin" class="form-control">
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                
-                                <div class="col-md-12 mt-1">
-                                    <label class="">Observation</label>
-                                    <textarea name="observation" id="" cols="20" rows="5" class="form-control"></textarea>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer"> 
-                            <a href="#" data-dismiss="modal" class="btn">Fermer</a>
-                            <button type="submit" class="btn btn-primary">Enregistrer</button>
-                        </div>
-
-                    </form>
-
+    <div class="modal fade" id="myModal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ajouter un abonné</h4>
+                    <button type="button" class="close"
+                        data-dismiss="modal"
+                        aria-hidden="true">×</button>
                 </div>
+                <div class="container"></div>
+
+                <form action="{{ route('abonnements.store') }}" method="POST">
+                @csrf
+
+                    <div class="modal-body">
+                        
+                        <div class="row">
+                            <div class="col-md-6 mt-1">
+                                <label class="">Entreprise</label>
+                                <input type="text" name="entreprise" class="form-control" placeholder="Nom de l'entreprise">
+                            </div>
+
+                            <div class="col-md-6 mt-1">
+                                <label class="">Personne ressource</label>
+                                <input type="text" name="personne" class="form-control" placeholder="Nom cu client">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mt-1">
+                                <label class="">Contact</label>
+                                <input type="text" name="contact" class="form-control" placeholder="Numéro de tél">
+                            </div>
+
+                            <div class="col-md-6 mt-1">
+                                <label class="">Email</label>
+                                <input type="text" name="email" class="form-control" placeholder="Addresse mail">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mt-1">
+                                <label class="">Nature</label>
+                                <select name="nature" id="" class="form-control">
+                                    <option value="PDF">PDF</option>
+                                    <option value="Tabloïd">Tabloïd</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mt-1">
+                                <label class="">Etat</label>
+                                <select name="etat" id="" class="form-control">
+                                    <option value="Payé">Payé</option>
+                                    <option value="Non payé">Non payé</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mt-1">
+                                <label class="">Montant</label>
+                                <input type="text" name="montant" class="form-control" placeholder="Montant payé">
+                            </div>
+
+                            <div class="col-md-6 mt-1">
+                                <label class="">Statut</label>
+                                <select name="statut" id="" class="form-control">
+                                    <option value="Actif">Actif</option>
+                                    <option value="Inactif">Inactif</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mt-1">
+                                <label class="">Date de début</label>
+                                <input type="date" name="datedebut" class="form-control">
+                            </div>
+
+                            <div class="col-md-6 mt-1">
+                                <label class="">Date de fin</label>
+                                <input type="date" name="datefin" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            
+                            <div class="col-md-12 mt-1">
+                                <label class="">Observation</label>
+                                <textarea name="observation" id="" cols="20" rows="5" class="form-control"></textarea>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer"> 
+                        <a href="#" data-dismiss="modal" class="btn">Fermer</a>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+
+                </form>
+
             </div>
         </div>
-
+    </div>
 
 
     <!-- Modal de modification -->
-    @foreach($abonnements as $abonnement)
+    @foreach($journal as $abonnement)
 
         <div class="modal fade" id="myModal2{{$abonnement->idabonnement}}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Modifier un abonné</h4>
+                        <h4 class="modal-title">Ajouter un abonné</h4>
                         <button type="button" class="close"
                             data-dismiss="modal"
                             aria-hidden="true">×</button>
@@ -347,7 +346,7 @@
 
 
     <!-- Modal de suppression -->
-    @foreach($abonnements as $abonnement)
+    @foreach($journal as $abonnement)
 
         <form action="{{ route('abonnements.destroy', $abonnement->idabonnement) }}" method="POST">
 

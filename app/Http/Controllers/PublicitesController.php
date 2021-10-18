@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\abonnements;
+use App\Models\publicites;
 use Illuminate\Http\Request;
 
-class AbonnementsController extends Controller
+class PublicitesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class AbonnementsController extends Controller
      */
     public function index()
     {
-
-        $abonnements = abonnements::all();
-        return view('abonnements', compact('abonnements'));
+        $publicites = publicites::all();
+        return view('publicites', compact('publicites'));
     }
 
     /**
@@ -39,55 +38,51 @@ class AbonnementsController extends Controller
     {
         $request->validate([
             'entreprise' => 'required',
-            'personne' => 'required',
+            'intitule' => 'required',
             'contact' => 'required',
-            'email' => 'required',
-            'nature' => 'required',
+            'support' => 'required',
             'etat' => 'required',
             'montant' => 'required',
-            'statut' => 'required',
-            'observation' => 'required',
+            'paiement' => 'required',
             'datedebut' => 'required',
             'datefin' => 'required'
         ]);
 
-        $rubriques = new abonnements([
+        $rubriques = new publicites([
             'entreprise' => $request->get('entreprise'),
-            'personne' => $request->get('personne'),
+            'intitule' => $request->get('intitule'),
             'contact' => $request->get('contact'),
-            'email' => $request->get('email'),
-            'nature' => $request->get('nature'),
+            'support' => $request->get('support'),
             'etat' => $request->get('etat'),
             'montant' => $request->get('montant'),
-            'statut' => $request->get('statut'),
-            'observation' => $request->get('observation'),
+            'paiement' => $request->get('paiement'),
             'datedebut' => $request->get('datedebut'),
             'datefin' => $request->get('datefin')
         ]);
         $rubriques->save();
 
-        return redirect()->route('abonnements.index')->with('success', 'Abonné ajouté avec succès');
+        return redirect()->route('publicites.index')->with('success', 'Publicité ajoutée avec succès');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\abonnements  $id
+     * @param  \App\Models\publicites  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $abonnements = abonnements::findOrfail($id);
-        return view('showabonnement', compact('abonnements'));
+        $publicites = publicites::findOrfail($id);
+        return view('showpublicite', compact('publicites'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\abonnements  $abonnements
+     * @param  \App\Models\publicites  $publicites
      * @return \Illuminate\Http\Response
      */
-    public function edit(abonnements $abonnements)
+    public function edit(publicites $publicites)
     {
         //
     }
@@ -96,28 +91,27 @@ class AbonnementsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\abonnements  $id
+     * @param  \App\Models\publicites  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
     {
-        $abonnements = abonnements::findOrfail($id);
+        $publicites = publicites::findOrfail($id);
         $data = $request->all();
-        $abonnements->update($data);
+        $publicites->update($data);
         return redirect()->back()->with('success', 'Modification(s) effectuée(s) avec succès');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\abonnements  $id
+     * @param  \App\Models\publicites  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $abonnements = abonnements::findOrfail($id);
-        $abonnements->delete();
-        return redirect()->back()->with('success', 'Abonné supprimé avec succès');
+        $publicites = publicites::findOrfail($id);
+        $publicites->delete();
+        return redirect()->back()->with('success', 'Publicité supprimé avec succès');
     }
-
 }

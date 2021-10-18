@@ -11,6 +11,27 @@ class abonnements extends Model
 
     protected $primaryKey = "idabonnement";
 
+    public static function countPDF()
+    {
+        return abonnements::where('nature','PDF')->count();
+    }
+
+    public static function counttabloid()
+    {
+        return abonnements::where('nature','Tabloïd')->count();
+    }
+
+    public static function sendAlertNotification(){
+        $notiabonnements = abonnements::select('entreprise','personne','datefin')->where('datefin','=>',date('m-d-Y'))->get();
+        if ($notiabonnements){
+            Mail::to("ecomatin@yahoo.fr")->send(new abonnementsMail($notiabonnements));
+        }
+    }
+
+    public static function notifications(){
+        return self::query()->select(['entreprise','personne','datefin'])->where('datefin','=>',date('m-d-Y'))->get();
+    }
+
     protected $fillable = [
        
         'idabonnement',

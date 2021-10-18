@@ -1,14 +1,17 @@
+@php($notif  = \App\Models\abonnements::notifications())
+
 <nav class="navbar header-navbar pcoded-header">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
             <a class="mobile-menu" id="mobile-collapse" href="#!">
-                <i class="feather icon-menu"></i>
+                <i class="fa fa-user"></i>
             </a>
             <a href="index.html">
-                <img class="img-fluid" src="{{ asset('assets/images/ecomatin.png') }}" alt="Theme-Logo" width="150px" higth="150px"/>
+                
+                <h4>Commercial</h4>
             </a>
             <a class="mobile-options">
-                <i class="feather icon-more-horizontal"></i>
+                <i class="fa fa-user"></i>
             </a>
         </div>
         <div class="navbar-container container-fluid">
@@ -20,7 +23,7 @@
                                     class="feather icon-x"></i></span>
                             <input type="text" class="form-control">
                             <span class="input-group-addon search-btn"><i
-                                    class="feather icon-search"></i></span>
+                                    class="fa fa-search"></i></span>
                         </div>
                     </div>
                 </li>
@@ -34,32 +37,38 @@
             </ul>
             <ul class="nav-right">
                 <li class="header-notification">
+
                     <div class="dropdown-primary dropdown">
+
                         <div class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="feather icon-bell"></i>
-                            <span class="badge bg-c-pink">1</span>
+                            <i class="fa fa-bell"></i>
+                            <span class="badge bg-c-pink">{{ $notif->count()  }}</span>
                         </div>
+
                         <ul class="show-notification notification-view dropdown-menu"
                             data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                             <li>
-                                <h6>Notifications</h6>
-                                <label class="label label-danger">New</label>
-                            </li>
-                            <li>
-                                <div class="media">
-                                    <img class="d-flex align-self-center img-radius"
-                                        src="{{ asset('assets/images/avatar-4.jpg') }}"
-                                        alt="Generic placeholder image">
-                                    <div class="media-body">
-                                        <h5 class="notification-user">John Doe</h5>
-                                        <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
-                                            elit.</p>
-                                        <span class="notification-time">30 minutes ago</span>
-                                    </div>
-                                </div>
+                                <h6>Notification(s)</h6>
+                                <label class="label label-danger">Nouveau</label>
                             </li>
 
+                            @foreach($notif as $product)
+                                <li>
+                                    <div class="media">
+                                        <img class="d-flex align-self-center img-radius"
+                                            src="{{ asset('assets/images/user3.png') }}"
+                                            alt="Generic placeholder image">
+                                        <div class="media-body">
+                                            <h5 class="notification-user">{{$notif->entreprise}}</h5>
+                                            <p class="notification-msg">L'abonnement de {{$notif->personnes}} prend fin le :</p>
+                                            <span class="notification-time">{{$notif->datefin}}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+
                         </ul>
+
                     </div>
                 </li>
 
@@ -67,23 +76,23 @@
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('assets/images/ecomatin2.png') }}" class="img-radius"
+                            <img src="{{ asset('assets/images/user3.png') }}" class="img-radius"
                                 alt="User-Profile-Image">
                             <span>{{ Auth::user()->name }}</span>
-                            <i class="feather icon-chevron-down"></i>
+                            <i class="fa fa-chevron-down"></i>
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu"
                             data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
 
                             <li>
                                 <a href="">
-                                    <i class="feather icon-user"></i> Profile
+                                    <i class="fa fa-user"></i> Profile
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{route('logout')}}">
-                                    <i class="feather icon-log-out"></i> Déconnexion
+                                    <i class="fa fa-sign-out-alt"></i> Déconnexion
                                 </a>
                             </li>
                         </ul>

@@ -28,3 +28,11 @@ Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::resource('abonnements', 'App\Http\Controllers\AbonnementsController');
+
+Route::resource('publicites', 'App\Http\Controllers\PublicitesController');
+
+Route::get('/digital', 'App\Http\Controllers\HomeController@digital');
+
+Route::get('/journal', 'App\Http\Controllers\HomeController@journal');
+
+Route::get("notification","App\Http\Controllers\NotificationController@list")->name("notification_list");
