@@ -1,4 +1,4 @@
-@php($notif  = \App\Models\abonnements::notifications())
+@php($notifications = \App\Models\EndDatesNotificationsSent::query()->whereNull('read_at')->get())
 
 <nav class="navbar header-navbar pcoded-header">
     <div class="navbar-wrapper">
@@ -7,7 +7,7 @@
                 <i class="fa fa-user"></i>
             </a>
             <a href="index.html">
-                
+
                 <h4>Commercial</h4>
             </a>
             <a class="mobile-options">
@@ -42,29 +42,55 @@
 
                         <div class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-bell"></i>
-                            <span class="badge bg-c-pink">{{ $notif->count()  }}</span>
+                            <span class="badge bg-c-pink">{{ $notifications->count()  }}</span>
                         </div>
 
                         <ul class="show-notification notification-view dropdown-menu"
                             data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                             <li>
                                 <h6>Notification(s)</h6>
-                                <label class="label label-danger">Nouveau</label>
+                                @if( $notifications->count() > 0 )
+                                    <label class="label label-danger">Nouveau</label>
+                                @endif
                             </li>
 
-                            @foreach($notif as $product)
-                                <li>
-                                    <div class="media">
-                                        <img class="d-flex align-self-center img-radius"
-                                            src="{{ asset('assets/images/user3.png') }}"
-                                            alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            <h5 class="notification-user">{{$notif->entreprise}}</h5>
-                                            <p class="notification-msg">L'abonnement de {{$notif->personnes}} prend fin le :</p>
-                                            <span class="notification-time">{{$notif->datefin}}</span>
+                            @foreach($notifications as $notification)
+                                @if( $notification->isAbonnement()  )
+                                    <li>
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius"
+                                                 src="{{ asset('assets/images/user3.png') }}"
+                                                 alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">Abonnement</h5>
+                                                <p class="notification-msg">Des abonements ont expirées</p>
+
+{{--                                                <a class="notification-time btn btn-primary"></a>--}}
+
+                                            </div>
+                                            <a href="{{ route('notification_read_abonnement',['id' => $notification->id ])  }}">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                               @endif
+                                    @if( $notification->isPublicite()  )
+                                        <li>
+                                            <div class="media">
+                                                <img class="d-flex align-self-center img-radius"
+                                                     src="{{ asset('assets/images/user3.png') }}"
+                                                     alt="Generic placeholder image">
+                                                <div class="media-body">
+                                                    <h5 class="notification-user">publicités </h5>
+                                                    <p class="notification-msg">Des publicités on expirées</p>
+{{--                                                    <a class="notification-time btn btn-primary"></a>--}}{{----}}
+                                                </div>
+                                                <a href="{{ route('notification_read_publicite',['id' => $notification->id ])  }}">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    @endif
                             @endforeach
 
                         </ul>

@@ -36,3 +36,9 @@ Route::get('/digital', 'App\Http\Controllers\HomeController@digital');
 Route::get('/journal', 'App\Http\Controllers\HomeController@journal');
 
 Route::get("notification","App\Http\Controllers\NotificationController@list")->name("notification_list");
+
+Route::get("notification/read/a/{id}","App\Http\Controllers\NotificationController@readAbonnement")
+    ->name("notification_read_abonnement");
+
+Route::get("notification/read/p/{id}","App\Http\Controllers\NotificationController@readPublicite")
+    ->name("notification_read_publicite");

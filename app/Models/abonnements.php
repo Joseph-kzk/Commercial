@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class abonnements extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $primaryKey = "idabonnement";
 
@@ -33,7 +34,7 @@ class abonnements extends Model
     }
 
     protected $fillable = [
-       
+
         'idabonnement',
         'entreprise',
         'personne',
@@ -51,4 +52,9 @@ class abonnements extends Model
     ];
 
     protected $table = 'abonnements';
+
+    public  function endDatedNotification() {
+        return $this->hasMany(EndDatesNotificationsSent::class,'last_item_id','idabonnement')
+            ->where('type','abonnement');
+    }
 }
